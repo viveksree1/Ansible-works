@@ -1,0 +1,11 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - ping:
+    - replace:
+        path: /Users/viveksrikumar/Documents/Vzone/ansible-works/server.properties
+        regexp: 'log.message.format.version=1.0.1'
+        replace: 'log.message.format.version=2.4.0'
+        backup: yes

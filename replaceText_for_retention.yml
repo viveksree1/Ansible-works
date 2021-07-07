@@ -1,0 +1,11 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - ping:
+    - replace:
+        path: /Users/viveksrikumar/Documents/Vzone/ansible-works/server.properties
+        regexp: 'log.retention.hours=1'
+        replace: 'log.retention.hours=72'
+        backup: yes

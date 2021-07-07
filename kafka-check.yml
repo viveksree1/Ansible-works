@@ -1,0 +1,12 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - shell:
+        cmd: /Users/viveksrikumar/Downloads/kafka-2.4.0/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions {{ item.value.partitions }} --topic {{ item.key }}
+      with_dict: "{{ topics }}"
+    - shell:
+        cmd: /Users/viveksrikumar/Downloads/kafka-2.4.0/bin/kafka-topics.sh --zookeeper localhost:2181 -topic {{ item.key }} --alter --config retention.bytes={{ item.value.retention_bytes }} 
+      when: item.value.retention_bytes is defined
+      with_dict: "{{ topics }}"

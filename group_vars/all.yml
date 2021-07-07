@@ -1,0 +1,7 @@
+---
+topics:
+  topic1:
+    partitions: 20
+    retention_bytes: 12300
+  topic2:
+    partitions: 30

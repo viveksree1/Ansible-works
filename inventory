@@ -1,0 +1,6 @@
+[kafka]
+localhost
+
+[all:vars]
+ansible_user=username
+ansible_ssh_pass=XXXXX@XXXX

@@ -1,0 +1,8 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - shell:
+        cmd: echo {{ item.key }}
+      with_dict: "{{ topics }}"

@@ -1,0 +1,12 @@
+---
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - ping:
+    - blockinfile:
+        path: /opt/ns/kafka/config/server.properties
+        block: |
+          
+          #Adding the compression on broker side for capacity utilization
+          compression.type=gzip
